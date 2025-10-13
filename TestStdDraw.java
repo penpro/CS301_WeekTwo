@@ -6,6 +6,7 @@ public class TestStdDraw {
 
             StdDraw.circle(200,200,100);
             */
-            Circles.main(100,.5,.01,.05);
+            //Circles.DrawCircles(3000,.8f,.02f,.1f);
+
         }
     }
