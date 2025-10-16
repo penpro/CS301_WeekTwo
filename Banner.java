@@ -35,21 +35,32 @@ public class Banner {
         StdDraw.setFont(new Font("Monospaced", Font.PLAIN, 48));
 
         int n = s.length();
+        // switched to x position
         int k = 0; // start offset
+
+        // x position for marquee
+        // gives 0.05 screen space for each character so it know when to loop
+        int StringLength = s.length();
+        float TextX = -0.05f * StringLength;
         while (true) {
             // Build the rotated string so it appears to move left-to-right.
             // Decrement k to shift the first character leftward in the source,
             // which visually moves the banner text to the right.
+
             String rotated = s.substring((k % n + n) % n) + s.substring(0, (k % n + n) % n);
 
             StdDraw.clear(StdDraw.BLACK);
-            StdDraw.text(0.5, 0.5, rotated);
+            StdDraw.text(TextX, 0.5, rotated);
             StdDraw.show();
 
             StdDraw.pause(Math.max(0, delayMs));
 
             // Move one character per frame. Increase this step to move faster per frame.
-            k--;
+
+            TextX = TextX + 0.1f;
+            if (TextX > 1.0f + 0.05*StringLength) {
+                TextX = -0.05f * StringLength;
+            }
         }
     }
 }
