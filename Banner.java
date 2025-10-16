@@ -47,10 +47,10 @@ public class Banner {
             // Decrement k to shift the first character leftward in the source,
             // which visually moves the banner text to the right.
 
-            String rotated = s.substring((k % n + n) % n) + s.substring(0, (k % n + n) % n);
+            //String rotated = s.substring((k % n + n) % n) + s.substring(0, (k % n + n) % n);
 
             StdDraw.clear(StdDraw.BLACK);
-            StdDraw.text(TextX, 0.5, rotated);
+            StdDraw.text(TextX, 0.5, s);
             StdDraw.show();
 
             StdDraw.pause(Math.max(0, delayMs));
